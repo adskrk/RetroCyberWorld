@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GDG Retro World</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="scanlines"></div>
+
+    <div class="terminal">
+        <h1 class="glitch-text" data-text="Welcome to the Retro Cyber World">
+            Welcome to the Retro Cyber World
+        </h1>
+
+        <p><span id="typewriter-text"></span></p>
+
+        <pre class="ascii-art">
+/$$$$$$$  /$$$$$$$$ /$$   /$$
+| $$__  $$|__  $$__/| $$  | $$
+| $$  \ $$   | $$   | $$  | $$
+| $$$$$$$/   | $$   | $$$$$$$$
+| $$__  $$   | $$   | $$__  $$
+| $$  \ $$   | $$   | $$  | $$
+| $$$$$$$/   | $$   | $$  | $$
+|________/    |__/   |__/  |__/
+        </pre>
+
+        <div id="output"></div>
+
+        <div class="input-line">
+            <span class="prompt">></span>
+            <input type="text" id="command-input" autofocus>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+body {
+    background-color: black;
+    color: #00ff00; /* Neon green */
+    font-family: monospace;
+    font-size: 1.2rem;
+    padding: 20px;
+    margin: 0;
+}
+
+.terminal {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ff00;
+    padding: 20px;
+    height: 80vh; /* Make the terminal a good size */
+    overflow-y: auto; /* Add scrollbar if content overflows */
+}
+
+#output p {
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.prompt {
+    margin-right: 5px;
+    color: #00ff00;
+}
+
+#command-input {
+    background: transparent;
+    border: none;
+    color: #00ff00;
+    font-family: monospace;
+    font-size: 1.2rem;
+    flex-grow: 1;
+    outline: none;
+    caret-color: #00ff00; /* Blinking cursor */
+}
+
+/* Glitch effect for a specific class */
+.glitch-text {
+    position: relative;
+    font-weight: bold;
+    color: #00ff00;
+    animation: text-shadow-glitch 0.5s infinite;
+}
+
+/* Create the glitch effect using pseudo-elements */
+.glitch-text::before,
+.glitch-text::after {
+    content: attr(data-text); /* Grabs the text from the data-text attribute */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    overflow: hidden;
+}
+
+.glitch-text::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff00ff; /* Pink/magenta shadow */
+    animation: glitch-anim-1 2s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+    left: -2px;
+    text-shadow: -2px 0 #00ffff; /* Cyan/blue shadow */
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+/* Keyframes for the glitch effect */
+@keyframes glitch-anim-1 {
+    0% { transform: skewX(15deg); }
+    5% { transform: skewX(0deg); }
+    50% { transform: skewX(-15deg); }
+    55% { transform: skewX(0deg); }
+}
+
+@keyframes glitch-anim-2 {
+    0% { transform: skewX(-10deg); }
+    5% { transform: skewX(0deg); }
+    50% { transform: skewX(10deg); }
+    55% { transform: skewX(0deg); }
+}
+
+/* Scanline overlay */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        rgba(0, 0, 0, 0.2) 1px,
+        transparent 2px,
+        transparent 4px
+    );
+}
